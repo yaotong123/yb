@@ -238,18 +238,18 @@ function promise_image(){
 	 setTimeout(function(){
 	  	$('#purple_yt2').animate({
 	  	'opacity':'0',
-	  },10000)
+	  },12000)
 	  	
 	  	$('#purple_xlm2').animate({
 	  	'opacity':'0',
-	  },10000)
+	  },12000)
 	  	
 	  	$('#purple_content3').animate({
 	  	'opacity':'0'
-	  },10000)
+	  },12000)
 	  	$('#purple_content4').animate({
 	  	'opacity':'0'
-	  },10000)
+	  },12000)
 	  },140000)
 	 
 	 setTimeout(function(){
@@ -263,7 +263,7 @@ function promise_image(){
 	  	'backgroundPositionX':"0px"
 	  },5000)
 	 	
-	  },151000)
+	  },151500)
 	  
 	 $('#purple_content5').animatext({
 		speed: 300,
@@ -386,12 +386,18 @@ function promise_image(){
 		initDelay:214000
 	 });
 	 
-	 $('#red_love').delay(219000)
+	 $('#red_love').delay(220000)
 	  $('#red_love').animate({
 	  	'opacity':'1',
 	  	'fontSize':'100px',
-	  	'left':'300px'
+	  	'left':'300px',
 	  },5000)
+	  
+	  setTimeout(function(){
+	  	$('#red_love').animate({
+	  	'rotate':"-20deg",
+	  },5000)
+	  },224000)
 	 
 	/*//红色相恋*/
 	 
