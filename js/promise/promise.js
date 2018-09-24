@@ -263,7 +263,7 @@ function promise_image(){
 	  	'backgroundPositionX':"0px"
 	  },5000)
 	 	
-	  },151500)
+	  },152000)
 	  
 	 $('#purple_content5').animatext({
 		speed: 300,
@@ -397,7 +397,7 @@ function promise_image(){
 	  	$('#red_love').animate({
 	  	'rotate':"-20deg",
 	  },5000)
-	  },224000)
+	  },223000)
 	 
 	/*//红色相恋*/
 	 
