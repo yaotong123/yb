@@ -397,7 +397,7 @@ function promise_image(){
 	  	$('#red_love').animate({
 	  	'rotate':"-20deg",
 	  },5000)
-	  },224000)
+	  },223000)
 	 
 	/*//红色相恋*/
 	 
