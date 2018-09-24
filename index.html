@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>html5中秋节吃月饼游戏 - 网站源码</title>     	 
+<meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi"> 
+
+<script src="js/createjs.js" type="text/javascript"></script>
+<script src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+var isDesktop = navigator['userAgent'].match(/(ipad|iphone|ipod|android|windows phone)/i) ? false : true;
+var fontunit        = isDesktop ? 20 : ((window.innerWidth>window.innerHeight?window.innerHeight:window.innerWidth)/320)*10;
+document.write('<style type="text/css">'+
+	'html,body {font-size:'+(fontunit<30?fontunit:'30')+'px;}'+
+	(isDesktop?'#welcome,#GameTimeLayer,#GameLayerBG,#GameScoreLayer.SHADE{position: absolute;}':
+	'#welcome,#GameTimeLayer,#GameLayerBG,#GameScoreLayer.SHADE{position:fixed;}@media screen and (orientation:landscape) {#landscape {display: box; display: -webkit-box; display: -moz-box; display: -ms-flexbox;}}')+
+	'</style>');
+</script>
+<style type="text/css">
+body {font-family: "Helvetica Neue", Helvetica, STHeiTi, sans-serif; margin: 0; padding: 0;background:url(images/bj/bj2_new.png) left top repeat-y;background-size:100%;}
+.loading {background-image: url("data:image/gif;base64,R0lGODlhJQAlAJECAL3L2AYrTv///wAAACH/C05FVFNDQVBFMi4wAwEAAAAh+QQFCgACACwAAAAAJQAlAAACi5SPqcvtDyGYIFpF690i8xUw3qJBwUlSadmcLqYmGQu6KDIeM13beGzYWWy3DlB4IYaMk+Dso2RWkFCfLPcRvFbZxFLUDTt21BW56TyjRep1e20+i+eYMR145W2eefj+6VFmgTQi+ECVY8iGxcg35phGo/iDFwlTyXWphwlm1imGRdcnuqhHeop6UAAAIfkEBQoAAgAsEAACAAQACwAAAgWMj6nLXAAh+QQFCgACACwVAAUACgALAAACFZQvgRi92dyJcVJlLobUdi8x4bIhBQAh+QQFCgACACwXABEADAADAAACBYyPqcsFACH5BAUKAAIALBUAFQAKAAsAAAITlGKZwWoMHYxqtmplxlNT7ixGAQAh+QQFCgACACwQABgABAALAAACBYyPqctcACH5BAUKAAIALAUAFQAKAAsAAAIVlC+BGL3Z3IlxUmUuhtR2LzHhsiEFACH5BAUKAAIALAEAEQAMAAMAAAIFjI+pywUAIfkEBQoAAgAsBQAFAAoACwAAAhOUYJnAagwdjGq2amXGU1PuLEYBACH5BAUKAAIALBAAAgAEAAsAAAIFhI+py1wAIfkEBQoAAgAsFQAFAAoACwAAAhWUL4AIvdnciXFSZS6G1HYvMeGyIQUAIfkEBQoAAgAsFwARAAwAAwAAAgWEj6nLBQAh+QQFCgACACwVABUACgALAAACE5RgmcBqDB2MarZqZcZTU+4sRgEAIfkEBQoAAgAsEAAYAAQACwAAAgWEj6nLXAAh+QQFCgACACwFABUACgALAAACFZQvgAi92dyJcVJlLobUdi8x4bIhBQAh+QQFCgACACwBABEADAADAAACBYSPqcsFADs=");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: auto 60%; 
+}
+.SHADE {top: 0; left:0; width:100%; height: 100%; bottom:0; z-index: 11;}
+.BOX-V {box-orient: vertical;-webkit-box-orient: vertical; -moz-box-orient: vertical;-ms-flex-direction:column;}
+.BOX-D {box-align: end; box-pack: center -webkit-box-align: end; -webkit-box-pack: center; -ms-flex-align:end; -ms-flex-pack:center;}
+.BOX-M {box-align: center;box-pack: center; -webkit-box-align: center; -webkit-box-pack: center; -ms-flex-align:center; -ms-flex-pack:center;}
+.BOX-S {display:block; box-flex:1; -webkit-box-flex:1; -moz-box-flex:1;-ms-flex:1;}
+.BOX   ,.BOX-V,.BOX-D,.BOX-M, .FOOTER{display: box; display: -webkit-box; display: -moz-box; display: -ms-flexbox;}
+.BBOX  ,.BOX,.APP-STAGE,.INSET-STAGE,.STAGE,.PAGE-STAGE,.PAGE,.PAGE-BOX,.INSET-PAGE,.FOOTER{box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box;}
+
+#welcome { background-color:rgba(0,0,0,.8); text-align: center; font-weight: bold;overflow: hidden;}
+.welcome-bg {position:absolute;top:0;left:0;right:0;bottom:0; background: url(http://ww2.sinaimg.cn/mw1024/81345eabgw1ei0jyahwhwj20gp0qzt9s.jpg) center center no-repeat; background-size:100% 100%; opacity: .4;overflow: hidden;}
+#GameTimeLayer {top:1em; left: 0; width:100%; text-align: center; color:#f00; font-size: 4em; text-shadow:0 0 3px #fff,0 0 3px #fff,0 0 3px #fff;overflow: hidden;}
+#GameLayerBG {top:0;left:0;right:0;bottom:0;overflow:hidden;}
+.GameLayer {position:absolute;bottom:0;left:0;}
+.block {position:absolute;background-repeat: no-repeat; background-position: center;}
+/*.t1{ background-size:auto 100%;background-image:url(images/yb/yb1.png);}*/
+/*.t2{ background-size:auto 100%;background-image:url(images/yb/yb2.png);}
+.t3{ background-size:auto 100%;background-image:url(images/yb/yb3.png);}
+.t4{ background-size:auto 100%;background-image:url(images/yb/yb4.png);}
+.t5 { background-size:auto 100%;background-image:url(images/yb/yb5.png);}
+.t6 {background-size:auto 100%;background-image:url(images/yb/yb6.png);}
+.t7{ background-size:auto 100%;background-image:url(images/yb/yb7.png);}
+.t8{ background-size:auto 100%;background-image:url(images/yb/yb8.png);}
+.t9{ background-size:auto 100%;background-image:url(images/yb/yb9.png);}
+.t10 { background-size:auto 100%;background-image:url(images/yb/yb10.png);}*/
+/*.tt1,.tt2,.tt3,.tt4,.tt5 { background-size:auto 100%;background-image:url(images/laugh.gif);}*/
+@-ms-keyframes flash {
+	0% { opacity: 1; }
+	50% { opacity: 0; }
+	100% { opacity: 1; }
+}
+@-webkit-keyframes flash {
+	0% { opacity: 1; } 
+	50% { opacity: 0; }
+	100% { opacity: 1; }
+}
+.flash {-webkit-animation: flash .2s 3;animation: flash .2s 3;}
+.bad {background-color: #f00; -webkit-animation: flash .2s 3;animation: flash .2s 3;}
+*    {-webkit-tap-highlight-color: rgba(0,0,0,0);-ms-tap-highlight-color: rgba(0,0,0,0); tap-highlight-color: rgba(0,0,0,0); -ms-user-select: none;}
+
+#GameScoreLayer {background-position:center .5em; background-size: auto 4em; padding-top:3em; font-size:2em; font-weight: bold; color:#fff; text-align: center;overflow: hidden;}
+.bgc1 { background-color: #23378B;}
+.bgc2 { background-color: #009FE3;}
+.bgc3 { background-color: #E42313;}
+.bgc4 { background-color: #FCBD1B;}
+.bgc5 { background-color: #34002A;}
+
+.share-icon {width:1.7em; background-repeat:no-repeat; background-size: auto 100%;}
+
+#GameScoreLayer-btn .btn,#GameScoreLayer-share .btn {text-align: center;font-size:1.1em; background-color: rgba(0,0,0,.3); height:2em; line-height:2em;}
+
+.btn:active {opacity: 0.2;}
+#landscape {display: none;}
+
+
+#gameBody {position: relative; width: 640px; margin: 0 auto; height: 100%;}
+#share-wx {
+background: rgba(0,0,0,0.8);
+position: absolute;
+top: 0px;
+left: 0px;
+width: 100%;
+height: 100%;
+z-index: 10000;
+display: none;
+}
+/*.t1{ background-size:auto 100%;background-image:url(images/yb/yb1.png);}*/
+@font-face {
+	font-family: "love";
+	src: url("fonts/love.ttf");
+}
+#answer1,#answer2,#answer3,#answer4{
+	width: 20%;
+	text-align: center;
+	float: left;
+	margin-left: 5%;
+	cursor: pointer;
+	font-size: 40px;
+}
+#answer1:hover{
+	-webkit-text-stroke: 1px #EEE685;
+	font-size: 50px;
+}
+#answer2:hover{
+	-webkit-text-stroke: 1px #EEE685;
+	font-size: 50px;
+}
+#answer3:hover{
+	-webkit-text-stroke: 1px #EEE685;
+	font-size: 50px;
+}
+#answer4:hover{
+	-webkit-text-stroke: 1px #EEE685;
+	font-size: 50px;
+}
+</style>
+<script type="text/javascript">
+	var yb_count=52
+	for (var j=1; j<=yb_count; j++) {
+		document.write('<style type="text/css">'+
+		'.t'+j+'{background-size:auto 100%;background-image:url(images/yb/yb'+j+'.png);}'+
+		'</style>');
+		document.write('<style type="text/css">'+
+		'.tt'+j+'{ background-size:auto 100%;background-image:url(images/tz/tz'+j+'.png);'+
+		'</style>');
+	}
+	
+</script>
+<script src="js/stats.js" type="text/javascript"></script>
+ 
+</head> 
+
+<body onLoad="init()" style="overflow: hidden;background-size: 100% 100%;">
+
+<script type="text/javascript" src="js/yb.js"></script>
+<script type="text/javascript">
+	function prize(){
+		alert('是你! 是你！就是你！')
+		 window.location.href="xlm.html"; 
+	}
+</script>
+	 
+<DIV class="BBOX SHADE bgc1" id="GameScoreLayer" style="display: none;background: rgba(0,0,0,0.3);">
+	<DIV id='restart' style="padding: 0px 5%;display: none;">
+		<DIV id="GameScoreLayer-text"></DIV>
+		<DIV id="GameScoreLayer-score" style="margin-bottom: 1em;display:none;">得分</DIV> 
+		<DIV id="GameScoreLayer-bast" style='display:none;'>最佳</DIV>
+		<DIV class="BOX" id="GameScoreLayer-btn">
+		
+		<DIV class="btn BOX-S" onClick="replayBtn()" style="cursor: pointer;margin-top: 20px;background: rgba(67,110,238,0.5);">重来</DIV>&nbsp;				
+			<!--<DIV class="btn BOX-S" onClick="share()" style="cursor: pointer;">分享到朋友圈</DIV>&nbsp;-->
+		</DIV>
+		<BR>
+		<DIV class="BOX" id="GameScoreLayer-share">
+			<DIV class="btn BOX-S" id="mebtn" onclick="window.open(mebtnopenurl)" style="cursor: pointer;display: none;">土豪点我！</DIV>
+		</DIV>
+	</DIV>
+	
+	<div id="surprise" style="width: 100%;font-family: love;color: white;display: none;">
+		<div id="prize" style="
+			width: 300px;height:313px;
+			background: url(images/surprise/tz.png);
+			background-size: 100%;background-repeat: no-repeat;
+			background-position: center;
+			margin: 0 auto;
+			"></div>
+			
+		<div id="ask" style="width: 300px;font-size: 30px;
+			margin: 20px auto;text-align: center;">你是我的女主人么？</div>
+		
+		<div id="answer" style="width: 80%;background-color: red;margin: 0 auto;">
+			<div id="answer1" onClick="replayBtn()">yzy</div>
+			<div id="answer2" onclick="prize()">xlm</div>
+			<div id="answer3" onClick="replayBtn()">xyb</div>
+			<div id="answer4" onClick="replayBtn()">wlx</div>
+		</div>
+	</div>
+	
+</DIV>
+
+
+<DIV class="SHADE BOX-M" id="welcome">
+	<DIV class="welcome-bg FILL"></DIV>
+	<DIV class="FILL BOX-M" style="left: 0px; top: 0px; right: 0px; bottom: 0px; position: absolute; z-index: 5;">
+		<DIV style="margin: 0px 8% 0px 9%;">
+			<DIV style="color: rgb(254, 240, 2); font-size: 2.6em;">吃月饼大赛</DIV>
+			<BR>
+			<DIV style="color: rgb(255, 255, 255); line-height: 1.5em; font-size: 2.2em;">中秋快乐！</DIV>
+			<BR><BR>
+			<DIV class="btn loading" id="ready-btn" style="margin: 0px auto; width: 8em; height: 1.7em; color: rgb(255, 255, 255); line-height: 1.7em; font-size: 2.2em; display: inline-block;"></DIV>
+		</DIV>
+	</DIV>
+</DIV>
+
+
+<DIV class="SHADE BOX-M" id="landscape" style="background: rgba(0, 0, 0, 0.9);">
+	<DIV class="welcome-bg FILL"></DIV>
+	<DIV id="landscape-text" style="color: rgb(255, 255, 255); font-size: 3em;">请竖屏玩耍</DIV>
+</DIV>
+
+<DIV id="share-wx">
+	<P style="text-align: right; padding-left: 10px;"><IMG id="share-wx-img" style="padding-right: 25px; max-width: 280px;" 
+	src="images/2000.png"></P>
+</DIV>
+
+<script type="text/javascript">
+if (isDesktop)
+	document.write('</div>');
+</script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+</div>
+</body>
+</html>

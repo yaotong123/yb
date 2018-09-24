@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<style>
+html,body{height: 100%;width: 100%;}
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0} 
+body{font-size:12px;font-family:'微软雅黑';background:#fff;height: 100%;width: 100%;background: url(images/bj4.jpg);background-size: 100% 100%;overflow: hidden;} 
+a{color:#2d374b;text-decoration:none} 
+a:hover{color:#cd0200;text-decoration:underline} 
+em{font-style:normal} 
+li{list-style:none} 
+img{border:0;vertical-align:middle} 
+table{border-collapse:collapse;border-spacing:0} 
+p{word-wrap:break-word}
+#content { 
+	width: 100%;
+	height: 100%; 
+	top: 0px;
+	overflow: hidden; 
+	position: absolute; 
+}
+#snowflake { 
+	width: 100%; 
+	height: 100%; 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	overflow: hidden; 
+}
+.snowRoll { 
+	position: absolute; 
+	opacity: 0; 
+	-webkit-animation-name: mysnow; 
+	-webkit-animation-duration: 20s; 
+	-moz-animation-name: mysnow; 
+	-moz-animation-duration: 20s; 
+	height: 80px; 
+}
+@-webkit-keyframes mysnow {  
+	0% {
+	 bottom: 100%;
+	}
+	 50% {
+	 -webkit-transform: rotate(1080deg);
+	}
+	 100% {
+	 -webkit-transform: rotate(0deg) translate3d(50px, 50px, 50px);
+	}
+}
+@-moz-keyframes mysnow {  
+	0% {
+	 bottom: 100%;
+	}
+	 50% {
+	 -moz-transform: rotate(1080deg);
+	}
+	 100% {
+	 -moz-transform: rotate(0deg) translate3d(50px, 50px, 50px);
+	}
+}
+
+@font-face {
+	font-family: "love";
+	src: url("fonts/love.ttf");
+}
+
+</style>
+<link rel="stylesheet" href="css/promise/promise.css" />
+</head>
+<body>
+	<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+	<link href="css/component.css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/dist/animatext.min.js"></script>
+	
+	<div id="promise_image">
+		<!--粉色初识-->
+		<div id="pink">
+			<div id="pink_title">粉色的花瓣</div>
+			<div id="pink_yt"></div>
+			<div id="pink_like">初<br />识</div>
+			<div id="pink_xlm"></div>
+			<div id="pink_content1">我对她一见钟情</div>
+			<div id="pink_content2">她对我无限崇拜</div>
+		</div>
+		<!--//粉色初识-->
+		
+		<!--绿色的叶子-->
+		<div id="green">
+			<div id="green_title">绿色的叶子</div>
+			<div id="green_xlm"></div>
+			<div id="green_like">萌<br />芽</div>
+			<div id="green_yt"></div>
+			<div id="green_content">偶然的开始</div>
+		</div>
+		<!--//绿色的叶子-->
+		
+		<!--蓝色的花瓣-->
+		<div id="blue">
+			<div id="blue_title">蓝色的花瓣</div>
+			<div id="blue_yt">
+				<div id="blue_ytA">
+					<div id="blue_yt1"></div>
+				    <div id="blue_yt1_content">好想和她聊天</div>
+				</div>
+				<div id="blue_yt2"></div>
+			</div>
+			<div id="blue_like">相<br />约</div>
+			<div id="blue_xlm">
+				<div id="blue_xlm1"></div>
+				<div id="blue_xlm2"></div>
+			</div>
+			<div id="blue_content">
+				<div id="blue_contentA">
+					<div id="blue_content1">&nbsp;</div>
+				    <div id="blue_content2">学长,给我智慧吧</div>
+				</div>
+				<div id="blue_contentB">
+					<div id="blue_content3">追她成功!</div>
+				    <div id="blue_content4">考研成功!</div>
+				</div>
+				<div id="blue_contentC">
+					<div id="blue_content5">许下了约定</div>
+				</div>
+				
+			</div>
+		</div>
+		<!--//蓝色的花瓣-->
+		
+		<!--紫色的花瓣-->
+		<div id="purple">
+			<div id="purple_title">紫色的花瓣</div>
+			<div id="purple_yt">
+			    <div id="purple_yt1"></div>
+				<div id="purple_yt2"></div>
+				<div id="purple_yt3"></div>
+			</div>
+			<div id="purple_like">相<br />知</div>
+			<div id="purple_xlm">
+				<div id="purple_xlm1"></div>
+				<div id="purple_xlm2"></div>
+				<div id="purple_xlm3"></div>
+			</div>
+			<div id="purple_content">
+				<div id="purple_contentA">
+					<div id="purple_content1">我爱健身</div>
+				    <div id="purple_content2">她爱打扮</div>
+				</div>
+				<div id="purple_contentB">
+					<div id="purple_content3">我要耍帅</div>
+				    <div id="purple_content4">她要揍我</div>
+				</div>
+				<div id="purple_contentC">
+					<div id="purple_content5">陌生到了解</div>
+				</div>
+				
+			</div>
+	</div>
+		<!--//紫色的花瓣-->
+		
+		<!--红色的花瓣-->
+		<div id="red">
+			<div id="red_title">红色的花瓣</div>
+			<div id="red_yt_xlm">
+			    <div id="red_yt_xlm1"></div>
+				<div id="red_yt_xlm2"></div>
+				<div id="red_yt_xlm3"></div>
+				<div id="red_yt_xlm4"></div>
+			</div>
+			<div id="red_content">
+				<div id="red_content1">我终于向她表白了!</div>
+				<div id="red_content2">我终于牵到她的手了!</div>
+			    <div id="red_content3">我终于抱到她了!</div>
+				<div id="red_content4">我们终于在一起了!</div>
+				<div id="red_content5">简单的恋爱</div>
+				<div id="red_love">相恋</div>
+				
+			</div>
+			
+			
+			</div>
+	</div>
+		<!--//红色的花瓣-->
+		
+	</div>
+	
+	 <div id='content'>
+        <!-- 飘花 -->
+        <div id="snowflake"></div>
+    </div>
+	
+	<a href="javascript:;" class="md-trigger btn btn-primary btn-sm" data-modal="modal-4" style="display: none;">弹出框</a>
+	<div class="md-modal md-effect-4" id="modal-4">
+    <div class="md-content">
+      <h3>前方高能</h3>
+      <div>
+        <ul>
+          <li><strong>one:</strong> 带上耳机效果更好</li>
+          <li><strong>two:</strong> 准备好你的小心脏</li>
+          <li><strong>three:</strong> 一切就绪后,点开始吧</li>
+        </ul>
+        <div id='start_btn' class="md-close btn-sm btn-primary">开始</div>
+        <!--<button class="md-close btn-sm btn-primary">开始</button>-->
+      </div>
+    </div>
+  </div>
+	<script src="js/classie.js"></script>
+    <script src="js/modalEffects.js"></script>
+    <!--<script type="text/javascript">
+//  	var modal = document.getElementById('modal-4')
+//      setTimeout(function(){
+//	        classie.add( modal, 'md-show');
+//  	},1000)
+//  	setTimeout(function(){
+//  		$('#start_btn').css({
+//  			'opacity':'1'
+//  		})
+//  		$('#start_btn').animatext({
+//		speed: 300,
+//		effect: 'flipInY',
+//		reverse: false,
+//		initDelay:500
+//	 });
+//  	},1000)
+        $('blue_yt1').delay(2000)
+      	$('blue_yt1').animate({
+      		'opacity':'1'
+      	})
+      	$('blue_yt1').delay(4000)
+      	$('blue_yt1').animate({
+      		'opacity':'0'
+      	})
+    	
+    </script>-->
+	
+	<script type="text/javascript" src="js/promise/promise.js"></script>
+    <script type="text/javascript" src="js/jquery.transit.js"></script>
+	<script type="text/javascript" src="js/promise/flower.js"></script>
+	
+</body>
+        <audio id="promise" loop="loop" preload="load">
+			<source src="music/promise.mp3">
+		</audio>
+</html>
