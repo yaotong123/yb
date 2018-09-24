@@ -333,7 +333,7 @@ function promise_image(){
 	  	$('#red_content2').animate({
 	  	'opacity':'0'
 	  },5000)
-	  },187000)
+	  },189000)
 	  
 	  $('#red_yt_xlm3').delay(191500)
 	  $('#red_yt_xlm3').animate({
