@@ -245,6 +245,9 @@ window.shareData = {
 	}
 	function showGameScoreLayer(flag){
 		if(flag==1){
+			$('#surprise').css({
+				'display':'none'
+			})
 			$('#restart').css({
 				'display':'block'
 			})
@@ -264,6 +267,9 @@ window.shareData = {
 		window.shareData.tTitle = '我去！我刚一口气吃了'+_gameScore+'块月饼，吃货水平强过'+num+'人！'
 		}
 		if(flag==2){
+			$('#restart').css({
+				'display':'none'
+			})
 			alert('恭喜你！吃了'+_gameScore+'块月饼！将下来有一份大奖励！')
 			var l = document.getElementById('GameScoreLayer');
 			l.style.display = 'block';
